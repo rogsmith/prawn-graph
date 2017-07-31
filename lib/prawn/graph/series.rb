@@ -2,7 +2,7 @@ require "securerandom"
 
 module Prawn
   module Graph
-    
+
     # A Prawn::Graph::Series represents a series of data which are to be plotted
     # on a chart.
     #
@@ -15,6 +15,7 @@ module Prawn
         mark_average:     false,
         mark_minimum:     false,
         mark_maximum:     false,
+        stack: nil
       }
 
       def initialize(values = [], options = {})
@@ -84,6 +85,10 @@ module Prawn
 
       def mark_maximum?
         options.mark_maximum == true
+      end
+
+      def stack
+        options.stack
       end
     end
   end
