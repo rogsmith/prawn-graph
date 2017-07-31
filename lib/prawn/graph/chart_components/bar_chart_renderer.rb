@@ -58,7 +58,7 @@ module Prawn
                 groups.each do |key, vals|
                   series_offset = series_index + 1
                   last_y_position = 0
-                  puts "joe"
+                  
                   vals.each do |series|
 
                     prawn.fill_color    = @canvas.theme.color_for(series)
@@ -68,7 +68,7 @@ module Prawn
                     starting = (prawn.bounds.left + (point * width_per_point))
                     x_position = ( (starting + (series_offset * width) ).to_f - (width / 2.0))
                     y_position = ((point_height_percentage(series.values[point], key) * @plot_area_height)).to_f
-                    
+
                     y_position = y_position + last_y_position
                     prawn.fill_and_stroke_line([ x_position, last_y_position], [x_position, y_position]) unless series.values[point].zero?
 
